@@ -76,7 +76,7 @@ WSGI_APPLICATION = 'deploy.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'da9pt74dvimfni',
         'HOST': 'ec2-52-23-45-36.compute-1.amazonaws.com',
         'PORT': 5432,
