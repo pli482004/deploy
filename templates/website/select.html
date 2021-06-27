@@ -4,7 +4,8 @@
 {% block title %}Select A Name{% endblock %}
 
 {% block body %}
-<h1 style="text-align: center;">Select A Name</h1>
+<div class="box">
+<h1 style="text-align: center;">Select A Name</h1><br><br>
 <input value="Add a Name Here">
 <div class="container" style="height: 500px; width: 700px; border: 2px solid black; display: inline-block; float: right;">
     <ul>
@@ -12,4 +13,11 @@
         <li>Example Name 2</li>
     </ul>
 </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    alert("pipi");
+</script>
 {% endblock %}
