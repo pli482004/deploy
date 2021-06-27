@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block body %}
-    <h1>Philip Li</h1>
-    <p>Philip Li is a 16 year old high school student in Chicago, IL. </p>
-    <img src="{% static 'website/selfie.jpeg' %}" alt="Pic" id="selfie"/>
-    <p>Additional text and even more text</p>
+    <div class="container box">
+        <h1>Philip Li</h1>
+        <h4 style="font-family: Georgia;">Philip Li is a 16 year old high school student in Chicago, IL. </h4>
+        <img src="{% static 'website/selfie.jpeg' %}" alt="Pic" id="selfie"/>
+        <h4>Born in Aachen, Germany in October 5, 2004, he moved to Chicago at the age of 11 with his family. Extra fluff text and even more additional text that no one even needs, but makes the website looks more fleshed out. The quick brown fox jumps over the lazy dog.</h4>
+    </div>
 {% endblock %}

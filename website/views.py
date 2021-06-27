@@ -8,3 +8,7 @@ def index(request):
 
 def about(request):
     return render(request, "website/about.html")
+
+
+def select(request):
+    return render(request, "website/select.html")
