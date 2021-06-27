@@ -1,6 +1,8 @@
 {% extends "website/layout.html" %}
+{% load static %}
 
 {% block body %}
     <h1>Philip Li</h1>
     <p>Philip Li is a 16 year old high school student in Chicago, IL. </p>
+    <img src="{% static 'website/selfie.png' %}" alt="Pic"/>
 {% endblock %}
