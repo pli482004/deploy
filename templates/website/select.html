@@ -6,11 +6,11 @@
 {% block body %}
 <div class="box">
 <h1 style="text-align: center;">Select A Name</h1><br><br>
-<input value="Add a Name Here">
+<input placeholder="Add a Name Here" id="name"><button type="button" id="add">Add</button>
 <div class="container" style="height: 500px; width: 700px; border: 2px solid black; display: inline-block; float: right;">
-    <ul>
-        <li>Example Name</li>
-        <li>Example Name 2</li>
+    <ul id="names">
+        <li id="example1">Example Name</li>
+        <li id="example2">Example Name 2</li>
     </ul>
 </div>
 </div>
@@ -18,6 +18,22 @@
 
 {% block script %}
 <script>
-    alert("pipi");
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#add').addEventListener('click', function () {
+        add_name();
+    })
+})
+document.querySelector('#add').disabled = !document.querySelector('#name');
+
+function add_name(){
+    document.querySelector('#example1').remove();
+    document.querySelector('#example2').remove();
+    let name = document.querySelector('#name').value;
+    console.log(name)
+    let node = document.createElement("LI");
+    let textnode = document.createTextNode(name);
+    node.appendChild(textnode);
+    document.querySelector('#names').appendChild(node)
+}
 </script>
 {% endblock %}
