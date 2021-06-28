@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelector('#add').disabled = !document.querySelector('#name');
 
 function add_name(){
+    console.log("called")
     document.querySelector('#example1').remove();
     document.querySelector('#example2').remove();
     let name = document.querySelector('#name').value;
