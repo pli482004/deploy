@@ -27,14 +27,22 @@ document.querySelector('#add').disabled = !document.querySelector('#name');
 
 function add_name(){
     console.log("called")
-    {#document.querySelector('#example1').remove();#}
-    {#document.querySelector('#example2').remove();#}
-    let name = document.querySelector('#name').value;
-    console.log(name)
-    let node = document.createElement("LI");
-    let textnode = document.createTextNode(name);
-    node.appendChild(textnode);
-    document.querySelector('#names').appendChild(node)
+    try {
+        document.querySelector('#example1').remove();
+        document.querySelector('#example2').remove();
+    }
+    catch (err) {
+        // Do nothing lmao
+    }
+    finally {
+        let name = document.querySelector('#name').value;
+        console.log(name);
+        let node = document.createElement("LI");
+        let textnode = document.createTextNode(name);
+        node.appendChild(textnode);
+        document.querySelector('#names').appendChild(node);
+        document.querySelector('#name').value = "";
+    }
 }
 </script>
 {% endblock %}
