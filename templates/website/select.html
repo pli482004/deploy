@@ -6,7 +6,7 @@
 {% block body %}
 <div class="box">
 <h1 style="text-align: center;">Select A Name</h1><br><br>
-<input placeholder="Add a Name Here" id="name"><button type="button" id="add">Add</button>
+<input placeholder="Add a Name Here" id="name" onkeyup="success()"><button type="button" id="add" disabled>Add</button>
 <div class="container" style="height: 500px; width: 700px; border: 2px solid black; display: inline-block; float: right;">
     <ul id="names">
         <li id="example1">Example Name</li>
@@ -44,5 +44,8 @@ function add_name(){
         document.querySelector('#name').value = "";
     }
 }
+function success() {
+	 document.getElementById('add').disabled = document.getElementById("name").value === "";
+    }
 </script>
 {% endblock %}
