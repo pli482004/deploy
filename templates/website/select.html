@@ -13,6 +13,7 @@
         <li id="example2">Example Name 2</li>
     </ul>
 </div>
+<button class="btn btn-primary" type="button" id="select">Select 1 Name</button>
 </div>
 {% endblock %}
 
@@ -21,6 +22,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#add').addEventListener('click', function () {
         add_name();
+    })
+    document.querySelector('#select').addEventListener('click', function () {
+        chooseName();
     })
 })
 document.querySelector('#add').disabled = !document.querySelector('#name');
@@ -48,5 +52,11 @@ function add_name(){
 function success() {
 	 document.getElementById('add').disabled = document.getElementById("name").value === "";
     }
+
+function choosename() {
+    let names = [];
+    document.querySelectorAll('li').forEach(element => names.push(element.value));
+    console.log(names)
+}
 </script>
 {% endblock %}
