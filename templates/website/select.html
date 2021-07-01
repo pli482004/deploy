@@ -42,6 +42,7 @@ function add_name(){
         node.appendChild(textnode);
         document.querySelector('#names').appendChild(node);
         document.querySelector('#name').value = "";
+        document.querySelector('#add').disabled = true;
     }
 }
 function success() {
