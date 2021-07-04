@@ -54,10 +54,21 @@ function success() {
 	 document.getElementById('add').disabled = document.getElementById("name").value === "";
     }
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function chooseName() {
     let names = [];
     document.querySelectorAll('.list').forEach(element => names.push(element.innerHTML));
-    console.log(names)
+    console.log(names);
+    len = names.length;
+    let name = names[getRandomInt(0, len - 1)];
+    document.querySelector('#select').innerHTML = name;
+    document.querySelector('#select').disabled = true;
+    document.querySelector('#select').className = "btn btn-success";
 }
 </script>
 {% endblock %}
