@@ -9,8 +9,8 @@
 <input placeholder="Add a Name Here" id="name" onkeyup="success()"><button type="button" id="add" disabled>Add</button>
 <div class="container" style="height: 500px; width: 700px; border: 2px solid black; display: inline-block; float: right;">
     <ul id="names">
-        <li id="example1">Example Name</li>
-        <li id="example2">Example Name 2</li>
+        <li id="example1" class="list">Example Name</li>
+        <li id="example2" class="list">Example Name 2</li>
     </ul>
 </div>
 <button class="btn btn-primary" type="button" id="select">Select 1 Name</button>
@@ -44,6 +44,7 @@ function add_name(){
         let node = document.createElement("LI");
         let textnode = document.createTextNode(name);
         node.appendChild(textnode);
+        node.className = "list";
         document.querySelector('#names').appendChild(node);
         document.querySelector('#name').value = "";
         document.querySelector('#add').disabled = true;
@@ -55,7 +56,7 @@ function success() {
 
 function chooseName() {
     let names = [];
-    document.querySelectorAll('li').forEach(element => names.push(element));
+    document.querySelectorAll('li').forEach(element => names.push(element.innerHTML));
     console.log(names)
 }
 </script>
