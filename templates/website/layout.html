@@ -35,15 +35,15 @@
                 </ul>
                 {% if user.is_authenticated %}
                 <ul class="navbar-nav ml-auto mt-2">
-                    <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    <li class="nav-item">Logged in as {{ user.username }}</li>
                 </ul>
                 <ul class="navbar-nav ml-auto mt-2">
-                    <li class="nav-item"><a class="nav-link" href="/" disabled>Logged in as {{ user.username }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
                 </ul>
                 {% else %}
                 <ul class="navbar-nav ml-auto mt-2">
                     <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
                 </ul>
                 {% endif %}
             </div>
