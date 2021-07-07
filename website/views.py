@@ -18,6 +18,7 @@ def about(request):
 def select(request):
     return render(request, "website/select.html")
 
+
 def register(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -58,11 +59,11 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "auctions/login.html", {
+            return render(request, "website/login.html", {
                 "message": "Invalid username and/or password."
             })
     else:
-        return render(request, "auctions/login.html")
+        return render(request, "website/login.html")
 
 
 def logout_view(request):
