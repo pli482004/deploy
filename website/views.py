@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import *
+from website.models import *
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
