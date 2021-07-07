@@ -24,25 +24,26 @@
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-light bg-light border fixed-top">
-                <a class="navbar-brand" href="/"><span>Homepage</span></a>
-                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar">
-
-                        <ul class="navbar-nav mr-auto mt-2">
-                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'select' %}">Name Selector</a></li>
-                        </ul>
-    {#                    <ul class="navbar-nav ml-auto mt-2">#}
-    {#                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>#}
-    {#                    </ul>#}
-    {##}
-    {#                    <ul class="navbar-nav ml-auto mt-2">#}
-    {#                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>#}
-    {#                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>#}
-    {#                    </ul>#}
-                </div>
+            <a class="navbar-brand" href="/"><span>Homepage</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav mr-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'select' %}">Name Selector</a></li>
+                </ul>
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                </ul>
+                {% else %}
+                <ul class="navbar-nav ml-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                </ul>
+                {% endif %}
+            </div>
         </nav>
     </div>
     <br><br><br>
