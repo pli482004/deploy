@@ -83,12 +83,12 @@ function chooseName(ignore = []) {
     let name = names[getRandomInt(0, len - 1)];
     document.querySelector('#result').innerHTML = name;
     document.querySelector('#result').disabled = true;
-    document.querySelector('#result').style.visibility = visible;
+    document.querySelector('#result').style.visibility = "visible";
     document.querySelector('#select').innerHTML = "Select another name";
     document.querySelector('#select').addEventListener('click', function () {
         let already_picked = ignore;
-        already_picked.push(name)
-        chooseName(ignore=already_picked)
+        already_picked.push(name);
+        chooseName(ignore=already_picked);
     })
 }
 </script>
