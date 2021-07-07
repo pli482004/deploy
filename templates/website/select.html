@@ -13,7 +13,9 @@
         <li id="example2" class="list">Example Name 2</li>
     </ul>
 </div>
-<button class="btn btn-primary" type="button" id="select">Select 1 Name</button>
+<br><button class="btn btn-primary" type="button" id="select">Select 1 Name</button><br><br>
+<button class="btn btn-primary" type="button" id="result" style="visibility: hidden;"></button>
+<h6 style="color: grey;">Programmed in Javascript, HTML, and some basic CSS by Philip Li</h6>
 </div>
 {% endblock %}
 
@@ -60,15 +62,33 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function chooseName() {
+function removeItemOnce(arr, value) {
+    let index = arr.indexOf(value);
+    if (index > -1) {
+    arr.splice(index, 1);
+  }
+  return arr;
+}
+
+function chooseName(ignore = []) {
     let names = [];
     document.querySelectorAll('.list').forEach(element => names.push(element.innerHTML));
     console.log(names);
-    len = names.length;
+    let i = 0;
+    while (i < ignore.length) {
+        names = removeItemOnce(names, ignore[i]);
+        i++;
+    }
+    let len = names.length;
     let name = names[getRandomInt(0, len - 1)];
-    document.querySelector('#select').innerHTML = name;
-    document.querySelector('#select').disabled = true;
-    document.querySelector('#select').className = "btn btn-success";
+    document.querySelector('#result').innerHTML = name;
+    document.querySelector('#result').disabled = true;
+    document.querySelector('#select').innerHTML = "Select another name";
+    document.querySelector('#select').addEventListener('click', function () {
+        let already_picked = ignore;
+        already_picked.push(name)
+        chooseName(ignore=already_picked)
+    })
 }
 </script>
 {% endblock %}
