@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['pipimac.herokuapp.com', '127.0.0.1', '0.0.0.0', 'www.pliweb.co
 
 INSTALLED_APPS = [
     'website',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
