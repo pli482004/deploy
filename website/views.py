@@ -106,3 +106,9 @@ def send(request):
         x = np.argmax(model.predict(test_image), axis=-1)
 
     return JsonResponse({"hello": x}, status=200)
+
+
+def draw(request):
+    return render(request, "website/draw.html", {
+        'message': "Draw a number from 0 to 9"
+    })
