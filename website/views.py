@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 # from django.contrib.auth.decorators import login_required
 from django.templatetags.static import static
-# import tensorflow as tf
+import tensorflow as tf
 import json
 from PIL import Image
 from io import BytesIO
