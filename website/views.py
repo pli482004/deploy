@@ -79,8 +79,7 @@ def logout_view(request):
     return HttpResponseRedirect(reverse("index"))
 
 @csrf_exempt
-def send(request):
-    global x
+def draw(request):
     if request.method == "POST":
         ImageData = json.loads(request.body.decode())['data']
         import re
@@ -105,10 +104,8 @@ def send(request):
 
         x = np.argmax(model.predict(test_image), axis=-1)
 
-    return JsonResponse({"hello": x}, status=200)
-
-
-def draw(request):
-    return render(request, "website/draw.html", {
-        'message': "Draw a number from 0 to 9"
-    })
+        return JsonResponse({"hello": x}, status=200)
+    else:
+        return render(request, "website/draw.html", {
+            'message': "Draw a number from 0 to 9"
+        })
