@@ -70,7 +70,7 @@
         console.log(dataURL);
         document.getElementById("canvasimg").src = dataURL;
         document.getElementById("canvasimg").style.display = "inline";
-        fetch('/draw', {
+        fetch('/%2draw', {
         method: 'POST',
         body: JSON.stringify({
             data: dataURL
