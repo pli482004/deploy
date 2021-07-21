@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render
 from website.models import *
 from django.db import IntegrityError
@@ -113,4 +114,18 @@ def draw(request):
 
 
 def bookmark(request):
-    return render(request, "website/bookmark.html")
+    if request.method == "POST":
+        user = request.user
+        title = request.POST['title']
+        content = request.POST['content']
+        link = request.POST['link']
+        date = datetime.datetime
+        Bookmark.objects.create(title=title, content=content, link=link, date=date, user=user)
+        bookmarks = Bookmark.objects.filter(user=user)
+        return render(request, "website/bookmark.html", {
+            "bookmarks": bookmarks
+        })
+    else:
+        return render(request, "website/bookmark.html", {
+            "bookmarks": Bookmark.objects.filter(user=request.user)
+        })

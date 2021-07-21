@@ -22,8 +22,10 @@ function hide_and_show() {
 {% endblock %}
 
 {% block body %}
-<button class="btn btn-secondary" id="open">Create bookmark</button>
-<div id="form" style="display: none; justify-content: center; align-items: center;">
+<div style="text-align: center;">
+    <button class="btn btn-secondary" id="open">Create bookmark</button>
+</div>
+<div id="form" style="display: none; justify-content: center; align-items: center; width: 50%;">
     <form method="post" action="{% url 'bookmark' %}">
         {% csrf_token %}
         <input name="title" type="text" placeholder="Title"><br>
@@ -33,16 +35,25 @@ function hide_and_show() {
     </form>
 </div>
 <div class="container">
+    {% for bookmark in bookmarks %}
     <div class="row">
-        <div class="col">
-          1 of 3
+        <div class="col-3 column">
+          <b>{{ bookmark.title }}</b>
         </div>
-        <div class="col-6">
-          2 of 3 (wider)
+        {% if bookmark.content %}
+        <div class="col-6 column">
+          {{ bookmark.content }}
         </div>
-        <div class="col">
-          3 of 3
+        {% endif %}
+        {% if bookmark.link %}
+        <div class="col-5 column">
+          {{ bookmark.link }}
+        </div>
+        {% endif %}
+        <div class="col-3 column">
+            {{ bookmark.date }}
         </div>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
