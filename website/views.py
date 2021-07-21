@@ -111,4 +111,6 @@ def draw(request):
             'message': "Draw a number from 0 to 9"
         })
 
+
 def bookmark(request):
+    return render(request, "website/bookmark.html")
