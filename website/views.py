@@ -127,7 +127,8 @@ def bookmark(request):
                 "bookmarks": bookmarks
             })
         except:
-            return HttpResponse(user, title, content, link, date)
+            message = str(user) + str(title) + str(content) + str(link) + str(date)
+            return HttpResponse(message)
     else:
         return render(request, "website/bookmark.html", {
             "bookmarks": Bookmark.objects.filter(user=request.user)
