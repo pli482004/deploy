@@ -119,15 +119,11 @@ def bookmark(request):
         title = request.POST['title']
         content = request.POST['content']
         link = request.POST['link']
-        try:
-            Bookmark.objects.create(title=title, content=content, link=link, user=user)
-            bookmarks = Bookmark.objects.filter(user=user)
-            return render(request, "website/bookmark.html", {
-                "bookmarks": bookmarks
-            })
-        except:
-            message = str(user) + str(title) + str(content) + str(link)
-            return HttpResponse(message)
+        Bookmark.objects.create(title=title, content=content, link=link, user=user, date=datetime.datetime)
+        bookmarks = Bookmark.objects.filter(user=user)
+        return render(request, "website/bookmark.html", {
+            "bookmarks": bookmarks
+        })
     else:
         return render(request, "website/bookmark.html", {
             "bookmarks": Bookmark.objects.filter(user=request.user)
