@@ -120,11 +120,14 @@ def bookmark(request):
         content = request.POST['content']
         link = request.POST['link']
         date = datetime.datetime
-        Bookmark.objects.create(title=title, content=content, link=link, date=date, user=user)
-        bookmarks = Bookmark.objects.filter(user=user)
-        return render(request, "website/bookmark.html", {
-            "bookmarks": bookmarks
-        })
+        try:
+            Bookmark.objects.create(title=title, content=content, link=link, date=date, user=user)
+            bookmarks = Bookmark.objects.filter(user=user)
+            return render(request, "website/bookmark.html", {
+                "bookmarks": bookmarks
+            })
+        except:
+            return HttpResponseRedirect(reverse('index'))
     else:
         return render(request, "website/bookmark.html", {
             "bookmarks": Bookmark.objects.filter(user=request.user)

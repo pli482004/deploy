@@ -26,7 +26,7 @@ function hide_and_show() {
     <button class="btn btn-secondary" id="open">Create bookmark</button>
 </div>
 <div id="form" style="display: none; justify-content: center; align-items: center; width: 50%;">
-    <form method="post" action="{% url 'bookmark' %}">
+    <form method="post" action="{% url 'bookmark' %}" style="width: 50%;">
         {% csrf_token %}
         <input name="title" type="text" placeholder="Title"><br>
         <input name="content" type="text" placeholder="Content of what you want saved (optional)"><br>
