@@ -2,7 +2,7 @@ import datetime
 from django.shortcuts import render
 from website.models import *
 from django.db import IntegrityError
-from django.http import HttpResponseRedirect, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 # from django.contrib.auth.decorators import login_required
@@ -127,7 +127,7 @@ def bookmark(request):
                 "bookmarks": bookmarks
             })
         except:
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponse(user, title, content, link, date)
     else:
         return render(request, "website/bookmark.html", {
             "bookmarks": Bookmark.objects.filter(user=request.user)
