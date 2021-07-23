@@ -26,17 +26,17 @@ function hide_and_show() {
     <button class="btn btn-secondary" id="open">Create bookmark</button>
 </div>
 <div id="form" style="display: none; justify-content: center; align-items: center; width: 50%;">
-    <form method="post" action="{% url 'bookmark' %}" style="width: 50%;">
+    <form method="post" action="{% url 'bookmark' %}" style="width: 100%;">
         {% csrf_token %}
-        <input name="title" type="text" placeholder="Title"><br>
-        <input name="content" type="text" placeholder="Content of what you want saved (optional)"><br>
-        <input name="link" type="url" placeholder="Link (optional)"><br>
-        <input type="submit">
+        <input name="title" type="text" placeholder="Title" style="width: 100%;"><br>
+        <input name="content" type="text" placeholder="Content of what you want saved (optional)" style="width: 100%;"><br>
+        <input name="link" type="url" placeholder="Link (optional)" style="width: 100%;"><br>
+        <input type="submit" style="margin-right: auto; margin-left: auto;">
     </form>
 </div>
-<div class="container">
+<div class="container" style="display: flex; justify-content: center; align-items: center; align-content: center;">
     {% for bookmark in bookmarks %}
-    <div class="card" style="width: 40rem;">
+    <div class="card" style="width: 60rem; margin: 0;">
         <div class="card-body">
             <h5 class="card-title">{{ bookmark.title }}</h5>
             {% if bookmark.content %}

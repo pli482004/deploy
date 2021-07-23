@@ -119,7 +119,7 @@ def bookmark(request):
         title = request.POST['title']
         content = request.POST['content']
         link = request.POST['link']
-        Bookmark.objects.create(title=title, content=content, link=link, user=user, date=datetime.datetime)
+        Bookmark.objects.create(title=title, content=content, link=link, user=user, date=datetime.now)
         bookmarks = Bookmark.objects.filter(user=user)
         return render(request, "website/bookmark.html", {
             "bookmarks": bookmarks
