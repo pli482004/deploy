@@ -10,5 +10,5 @@ urlpatterns = [
     path("/login", views.login_view, name="login"),
     path("/logout", views.logout_view, name="logout"),
     # path("/draw", views.draw, name="draw"),
-    # path("/bookmark", views.bookmark, name="bookmark")
+    path("/bookmark", views.bookmark, name="bookmark")
 ]
