@@ -113,21 +113,21 @@ def logout_view(request):
 #         })
 
 #
-# def bookmark(request):
-#     if request.method == "POST":
-#         user = request.user
-#         title = request.POST['title']
-#         content = request.POST['content']
-#         link = request.POST['link']
-#         try:
-#             Bookmark.objects.create(title=title, content=content, link=link, user=user)
-#         except Exception as e:
-#             return HttpResponse(e)
-#         bookmarks = Bookmark.objects.filter(user=user)
-#         return render(request, "website/bookmark.html", {
-#             "bookmarks": bookmarks
-#         })
-#     else:
-#         return render(request, "website/bookmark.html", {
-#             "bookmarks": Bookmark.objects.filter(user=request.user)
-#         })
+def bookmark(request):
+    if request.method == "POST":
+        user = request.user
+        title = request.POST['title']
+        content = request.POST['content']
+        link = request.POST['link']
+        try:
+            Bookmark.objects.create(title=title, content=content, link=link, user=user)
+        except Exception as e:
+            return HttpResponse(e)
+        bookmarks = Bookmark.objects.filter(user=user)
+        return render(request, "website/bookmark.html", {
+            "bookmarks": bookmarks
+        })
+    else:
+        return render(request, "website/bookmark.html", {
+            "bookmarks": Bookmark.objects.filter(user=request.user)
+        })
