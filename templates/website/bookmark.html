@@ -36,22 +36,19 @@ function hide_and_show() {
 </div>
 <div class="container" style="display: flex; justify-content: center; align-items: center; align-content: center;">
     {% for bookmark in bookmarks %}
-    <div class="card" style="width: 60rem; margin: 0;">
+    <div class="card" style="width: 180rem; margin: 0 auto;">
         <div class="card-body">
             <h5 class="card-title">{{ bookmark.title }}</h5>
             {% if bookmark.content %}
             <p class="card-text">{{ bookmark.content }}</p>
             {% endif %}
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{ bookmark.date }}</li>
-        </ul>
         {% if bookmark.link %}
         <div class="card-body">
             <a href="{{ bookmark.link }}" class="card-link">{{ bookmark.link }}</a>
         </div>
         {% endif %}
-    </div>
+    </div><br>
     {% endfor %}
 </div>
 {% endblock %}
