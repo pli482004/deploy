@@ -137,7 +137,7 @@ def bookmark(request):
 
 
 country_data = []
-with open(staticfiles_storage.url('website/country_info.csv'), 'r') as data:
+with open(static('website/country_info.csv'), 'r') as data:
     reader = csv.reader(data)
     i = 0
     for row in reader:
