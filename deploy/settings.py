@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p=-dl0e6thau541i%444+6t&*hmuo87j&3!pa0kvvytxm@ccuv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pipimac.herokuapp.com', '127.0.0.1', '0.0.0.0', 'www.pliweb.com', 'pliweb.com']
 
