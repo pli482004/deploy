@@ -16,6 +16,7 @@ from django.templatetags.static import static
 # from keras.preprocessing.image import img_to_array
 # import numpy as np
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 
 def index(request):
@@ -136,7 +137,7 @@ def bookmark(request):
 
 
 country_data = []
-with open("static/website/country_info.csv", 'r') as data:
+with open(staticfiles_storage.url('website/country_info.csv'), 'r') as data:
     reader = csv.reader(data)
     i = 0
     for row in reader:
