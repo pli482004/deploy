@@ -1,4 +1,6 @@
 import datetime
+import csv
+import random
 from django.shortcuts import render
 from website.models import *
 from django.db import IntegrityError
@@ -131,3 +133,33 @@ def bookmark(request):
         return render(request, "website/bookmark.html", {
             "bookmarks": Bookmark.objects.filter(user=request.user)
         })
+
+
+country_data = []
+with open("static/website/country_info.csv", 'r') as data:
+    reader = csv.reader(data)
+    i = 0
+    for row in reader:
+        if i == 0:
+            continue
+        country = row[1]
+        code = row[1].lower
+        capital = row[4]
+        info = [country, code, capital]
+        country_data.append(info)
+        i += 1
+country_size = len(country_data)
+
+
+def capitals(request):
+    if request.method == "POST":
+        pass
+    else:
+        integer = random.randint(0, country_size-1)
+        return render(request, "website/capitals.html", {
+            "name": country_data[integer][0],
+            "code": country_data[integer][1],
+            "capital": country_data[integer][2]
+        })
+
+

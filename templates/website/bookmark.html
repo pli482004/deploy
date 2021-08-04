@@ -25,8 +25,8 @@ function hide_and_show() {
 <div style="text-align: center;">
     <button class="btn btn-secondary" id="open">Create bookmark</button>
 </div>
-<div id="form" style="display: none; justify-content: center; align-items: center; width: 50%;">
-    <form method="post" action="{% url 'bookmark' %}" style="width: 100%;">
+<div id="form" style="display: none; justify-content: center; align-items: center; width: 100%;">
+    <form method="post" action="{% url 'bookmark' %}" style="width: 80%;">
         {% csrf_token %}
         <input name="title" type="text" placeholder="Title" style="width: 100%;"><br>
         <input name="content" type="text" placeholder="Content of what you want saved (optional)" style="width: 100%;"><br>
@@ -36,7 +36,7 @@ function hide_and_show() {
 </div>
 <div class="container" style="display: flex; justify-content: center; align-items: center; align-content: center;">
     {% for bookmark in bookmarks %}
-    <div class="card" style="width: 180rem; margin: 0 auto;">
+    <div class="card" style="width: 80%; margin: 0 auto;">
         <div class="card-body">
             <h5 class="card-title">{{ bookmark.title }}</h5>
             {% if bookmark.content %}
@@ -48,7 +48,7 @@ function hide_and_show() {
             <a href="{{ bookmark.link }}" class="card-link">{{ bookmark.link }}</a>
         </div>
         {% endif %}
-    </div><br>
+    </div><hr><hr>
     {% endfor %}
 </div>
 {% endblock %}
